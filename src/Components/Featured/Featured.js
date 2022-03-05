@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillTag } from "react-icons/ai";
-import BlogImg from '../../static/blog.svg';
+import BlogImg from "../../static/blog.svg";
 
 const items = [
   {
@@ -58,11 +58,7 @@ function TrendingNews(props) {
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             {items.map((item) => {
-              return (
-                <Grid item xs={2} sm={4} md={4}>
-                  <TrendingItem width={width} item={item} />
-                </Grid>
-              );
+              return <TrendingItem width={width} item={item} />;
             })}
           </Grid>
         </Box>
@@ -78,14 +74,9 @@ const TrendingItem = (props) => {
   const width = props.width;
   const { img, title, content, date, tags } = props.item;
   return (
-    <div style={{ display: width === "xs" ? "flex" : "block" }}>
-      <img src={img} width={width === "xs" ? "25%" : "100%"} />
-      <div
-        style={{
-          marginTop: width === "xs" ? "0" : "1%",
-          marginLeft: width === "xs" ? "12%" : "0",
-        }}
-      >
+    <Grid item xs={12} sm={6} md={4} style={{ padding: '2%' }}>
+      <img src={img} style={{ width: '100%'}} />
+      <div>
         <Typography
           style={{
             fontWeight: "bold",
@@ -135,6 +126,6 @@ const TrendingItem = (props) => {
           })}
         </Typography>
       </div>
-    </div>
+    </Grid>
   );
 };

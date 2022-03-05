@@ -1,51 +1,79 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import * as React from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import ListSubheader from "@mui/material/ListSubheader";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import Grid from "@mui/material/Grid";
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-}));
-
-export default function GroupSelect() {
-  const classes = useStyles();
-
+export default function GroupedSelect() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around', padding: '1% 5%' }}>
-      <FormControl className={classes.formControl} style={{ background: '#d4d9d1', width: '300px', height: '50px', borderRadius: '8px', padding: '7px 14px', }}>
-        <InputLabel htmlFor="grouped-native-select">Type</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select">
-          <option aria-label="None" value="" />
-          <optgroup label="Category 1">
-            <option value={1}>Option 1</option>
-            <option value={2}>Option 2</option>
-          </optgroup>
-          <optgroup label="Category 2">
-            <option value={3}>Option 3</option>
-            <option value={4}>Option 4</option>
-          </optgroup>
-        </Select>
-      </FormControl>
-      <FormControl className={classes.formControl} style={{ background: '#d4d9d1', width: '300px', height: '50px', borderRadius: '8px', padding: '7px 14px', }}>
-        <InputLabel htmlFor="grouped-native-select">Category</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select">
-          <option aria-label="None" value="" />
-          <optgroup label="Category 1">
-            <option value={1}>Option 1</option>
-            <option value={2}>Option 2</option>
-          </optgroup>
-          <optgroup label="Category 2">
-            <option value={3}>Option 3</option>
-            <option value={4}>Option 4</option>
-          </optgroup>
-        </Select>
-      </FormControl>
+    <div
+      style={{
+        width: "90vw",
+        display: "flex",
+        justifyContent: "space-around",
+        padding: "0% 5%",
+      }}
+    >
+      <Grid container spacing={2}>
+      <Grid item md={6} style={{
+        display: "flex",
+        justifyContent: "center",
+      }}>
+        <FormControl
+          sx={{ m: 1, minWidth: 320 }}
+          style={{ background: "#d4d9d1", border: "none" }}
+        >
+          <InputLabel htmlFor="grouped-native-select">Grouping</InputLabel>
+          <Select
+            native
+            defaultValue=""
+            id="grouped-native-select"
+            label="Grouping"
+            style={{ border: "none" }}
+          >
+            <option aria-label="None" value="" />
+            <optgroup label="Category 1">
+              <option value={1}>Option 1</option>
+              <option value={2}>Option 2</option>
+            </optgroup>
+            <optgroup label="Category 2">
+              <option value={3}>Option 3</option>
+              <option value={4}>Option 4</option>
+            </optgroup>
+          </Select>
+        </FormControl>
+      </Grid>
+      <Grid item md={6} style={{
+        display: "flex",
+        justifyContent: "center",
+      }}>
+        <FormControl
+          sx={{ m: 1, minWidth: 320 }}
+          style={{ background: "#d4d9d1", border: "none" }}
+        >
+          <InputLabel htmlFor="grouped-native-select">Grouping</InputLabel>
+          <Select
+            native
+            defaultValue=""
+            id="grouped-native-select"
+            label="Grouping"
+            style={{ border: "none" }}
+          >
+            <option aria-label="None" value="" />
+            <optgroup label="Category 1">
+              <option value={1}>Option 1</option>
+              <option value={2}>Option 2</option>
+            </optgroup>
+            <optgroup label="Category 2">
+              <option value={3}>Option 3</option>
+              <option value={4}>Option 4</option>
+            </optgroup>
+          </Select>
+        </FormControl>
+      </Grid>
+      </Grid>
     </div>
   );
 }
